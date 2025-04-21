@@ -45,12 +45,6 @@ $result_users = $conn->query($query_users);
     <li><a href="banned_pengguna.php">⛔ Banned Pengguna</a></li>
 </ul>
 
-<h4>📋 Forum</h4>
-<ul>
-    <li><a href="tutup_forum.php">🚫 Tutup Forum</a></li>
-    <li><a href="hapus_forum.php">🗑️ Hapus Forum</a></li>
-</ul>
-
 <h4>Daftar Forum</h4>
 <table border="1">
     <tr>
@@ -59,7 +53,7 @@ $result_users = $conn->query($query_users);
         <th>Judul Forum</th>
         <th>Deskripsi</th>
         <th>Created at</th>
-        <th>Aksi</th>
+        <th>Actions</th>
     </tr>
     <?php while ($forum = $result->fetch_assoc()): ?>
         <tr>
@@ -70,8 +64,8 @@ $result_users = $conn->query($query_users);
             <td><?= $forum['created_at'] ?></td>
 
             <td>
-                <a href="edit_forum.php?id=<?= $forum['id'] ?>">✏️ Edit</a> |
-                <a href="hapus_forum.php?id=<?= $forum['id'] ?>">🗑️ Hapus</a>
+                <a href="tutup_forum.php?id=<?= $forum['id'] ?>">🚫 Tutup Forum</a>
+                <a href="hapus_forum.php?id=<?= $forum['id'] ?>">🗑️ Hapus Forum</a>
             </td>
         </tr>
     <?php endwhile; ?>
@@ -83,7 +77,7 @@ $result_users = $conn->query($query_users);
         <th>ID</th>
         <th>Username</th>
         <th>Role</th>
-        <th>Aksi</th>
+        <th>Actions</th>
     </tr>
     <?php while ($user = $result_users->fetch_assoc()): ?>
         <tr>

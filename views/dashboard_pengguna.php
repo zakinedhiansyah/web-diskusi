@@ -45,10 +45,8 @@ $result = $conn->query($query);
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 30px;
-        }
-        header h2 {
-            margin: 0;
-        }
+            text-align: center; /* tengah */
+        }    
         .forum-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -97,13 +95,19 @@ $result = $conn->query($query);
         }
         .top-links a {
             text-decoration: none;
-            color: #3498db;
+            color: #ffffff; /* ubah warna menjadi putih */
             margin-right: 15px;
             font-weight: bold;
+            
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
         }
         .top-links a:hover {
-            text-decoration: underline;
+           
+            text-decoration: none;
         }
+
         .forum-actions {
             margin-top: 10px;
         }
@@ -119,10 +123,10 @@ $result = $conn->query($query);
 </head>
 <body>
     <header>
-        <h2>Selamat datang, <?= htmlspecialchars($username) ?> (Pengguna)</h2>
-        <div class="top-links">
-            <a href="tambah_forum.php">➕ Tambah Forum</a>
-            <a href="logout.php">🔓 Logout</a>
+        <h2>Selamat datang, <?= htmlspecialchars($username) ?> (User)</h2>
+        <div class="top-links"> 
+            <a href="tambah_forum.php"> Tambah Forum</a>
+            <a href="logout.php">Logout</a>
         </div>
     </header>
 
@@ -136,7 +140,7 @@ $result = $conn->query($query);
                 <?php if ($forum['user_id'] == $user_id): ?>
                 <div class="forum-actions">
                     <a href="edit_forum.php?id=<?= $forum['id'] ?>" class="edit">✏️ Edit</a>
-                    <a href="hapus_forum.php?id=<?= $forum['id'] ?>" onclick="return confirm('Yakin ingin menghapus forum ini?');">🗑️ Hapus</a>
+                    <a href="hapus_forum_pengguna.php?id=<?= $forum['id'] ?>" onclick="return confirm('Yakin ingin menghapus forum ini?');">🗑️ Hapus</a>
                 </div>
                 <?php endif; ?>
 

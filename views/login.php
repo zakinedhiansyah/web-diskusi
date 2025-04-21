@@ -3,7 +3,11 @@
 session_start();
 
 if (isset($_SESSION['username'])) {
-    header('Location: dashboard_pengguna.php');
+    if ($_SESSION['role'] === 'admin') {
+        header('Location: dashboard_admin.php');
+    } else {
+        header('Location: dashboard_pengguna.php');
+    }
     exit;
 }
 
@@ -26,7 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
             $_SESSION['user_id'] = $user['id'];
-            header('Location: dashboard_pengguna.php');
+            
+            if ($user['role'] === 'admin') {
+                header('Location: dashboard_admin.php');
+            } else {
+                header('Location: dashboard_pengguna.php');
+            }
             exit;
         } else {
             $error = 'Password salah!';
