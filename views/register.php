@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         button {
             width: 100%;
             padding: 10px;
-            background-color: #2ecc71;
+            background-color: #3498db;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             cursor: pointer;
         }
         button:hover {
-            background-color: #27ae60;
+            background-color: #2980b9;
         }
         .error {
             color: red;
